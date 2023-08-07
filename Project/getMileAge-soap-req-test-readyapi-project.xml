@@ -1,0 +1,933 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="9a786182-4ceb-457b-8105-ac21a0613916" created="3.41.1" activeEnvironment="IGP-VAL" name="getMileAge-soap-req-test" resourceRoot="" updated="3.41.1 2022-09-28T09:40:46Z" encryptionMode="Not encrypted" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:WsdlInterface" id="54e01517-885c-43b2-84e6-aca5e3912f8d" wsaVersion="NONE" name="ZFPM_KM_REQUESTBinding" type="wsdl" bindingName="{urn:dsb.dk:services:common:idoc:ZFPM_KM_REQUEST}ZFPM_KM_REQUESTBinding" soapVersion="1_1" anonymous="optional" definition="http://soa.igp2tst.dsb.dk:9200/soa-infra/services/stog/GetMileAge/GetMileAge_ep?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart="http://soa.igp2tst.dsb.dk:9200/soa-infra/services/stog/GetMileAge/GetMileAge_ep?wsdl">
+      <con:part>
+        <con:url>http://soa.igp2tst.dsb.dk:9200/soa-infra/services/stog/GetMileAge/GetMileAge_ep?wsdl</con:url>
+        <con:content><![CDATA[<wsdl:definitions name="ZFPM_KM_REQUEST" targetNamespace="urn:dsb.dk:services:common:idoc:ZFPM_KM_REQUEST" xmlns:urn="urn:dsb.dk:services:common:idoc:ZFPM_KM_REQUEST" xmlns:hdr="urn:dsb.dk:services:common:header" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:documentation>
+    <abstractWSDL>http://soa.igp2tst.dsb.dk:9200/soa-infra/services/stog/GetMileAge!4.0.16/GetMileAge.wsdl</abstractWSDL>
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:dsb.dk:services:common:idoc:ZFPM_KM_REQUEST" xmlns="urn:dsb.dk:services:common:idoc:ZFPM_KM_REQUEST" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import schemaLocation="http://soa.igp2tst.dsb.dk:9200/soa-infra/services/stog/GetMileAge/GetMileAge_ep?XSD=CommonServiceHeader.xsd" namespace="urn:dsb.dk:services:common:header"/>
+      <xsd:element name="ZFPM_KM_REQUEST">
+        <xsd:annotation>
+          <xsd:documentation>Send KM start-request</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element type="hdr:RequestHeaderType" name="ServiceHeaderRequest"/>
+            <xsd:element name="IDOC" minOccurs="1" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="EDI_DC40">
+                    <xsd:annotation>
+                      <xsd:documentation>IDoc-kontrolrecord for interface til et eksternt
+                              system</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="TABNAM" type="xsd:string" fixed="EDI_DC40">
+                          <xsd:annotation>
+                            <xsd:documentation>Navn pa tabelstruktur</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="MANDT" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Klient</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="3"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="DOCNUM" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Nummer pa IDoc</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="16"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="DOCREL" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>SAP-release for IDoc</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="4"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="STATUS" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Status for IDoc</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="2"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="DIRECT">
+                          <xsd:annotation>
+                            <xsd:documentation>Retning</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:enumeration value="1">
+                                <xsd:annotation>
+                                  <xsd:documentation>Udgang</xsd:documentation>
+                                </xsd:annotation>
+                              </xsd:enumeration>
+                              <xsd:enumeration value="2">
+                                <xsd:annotation>
+                                  <xsd:documentation>Indgang</xsd:documentation>
+                                </xsd:annotation>
+                              </xsd:enumeration>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="OUTMOD" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Outputmode</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="1"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="EXPRSS" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Tilsidesattelse i indgang</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="1"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="TEST" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>IN: Test</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="1"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="IDOCTYP" type="xsd:string" fixed="ZFPM_KM_REQUEST">
+                          <xsd:annotation>
+                            <xsd:documentation>Navn pa basistype</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="CIMTYP" minOccurs="0" type="xsd:string" fixed="">
+                          <xsd:annotation>
+                            <xsd:documentation>Udvidelse (defineret af kunden)</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="MESTYP" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Meddelelsestype</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="30"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="MESCOD" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Meddelelsesvariant</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="3"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="MESFCT" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Meddelelsesfunktion</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="3"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="STD" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>IN: EDI-standard</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="1"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="STDVRS" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>EDI-standard, version og release</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="6"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="STDMES" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>EDI-meddelelsestype</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="6"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="SNDPOR">
+                          <xsd:annotation>
+                            <xsd:documentation>Afsenderport (SAP-system, eksternt subsystem)</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="10"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="SNDPRT">
+                          <xsd:annotation>
+                            <xsd:documentation>Afsenders partnerart</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="2"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="SNDPFC" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Afsenders partnerrolle</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="2"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="SNDPRN">
+                          <xsd:annotation>
+                            <xsd:documentation>Afsenders partnernummer</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="10"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="SNDSAD" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Afsenderadresse (SADR)</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="21"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="SNDLAD" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Logisk adresse pa afsender</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="70"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="RCVPOR">
+                          <xsd:annotation>
+                            <xsd:documentation>Modtagerport</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="10"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="RCVPRT" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Modtagers partnerart</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="2"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="RCVPFC" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Modtagers partnerrolle</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="2"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="RCVPRN">
+                          <xsd:annotation>
+                            <xsd:documentation>Modtagers partnernummer</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="10"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="RCVSAD" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Modtageradresse (SADR)</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="21"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="RCVLAD" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Logisk adresse for modtager</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="70"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="CREDAT" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Oprettelsesdato</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="8"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="CRETIM" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Oprettelsesklokkeslat</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="6"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="REFINT" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Transmissionsfil (EDI Interchange)</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="14"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="REFGRP" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Meddelelsesgruppe (EDI Message Group)</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="14"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="REFMES" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Meddelelse (EDI Message)</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="14"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="ARCKEY" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Nogle for eksternt meddelelsesarkiv</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="70"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="SERIAL" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Serienummerering</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="20"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                      </xsd:sequence>
+                      <xsd:attribute name="SEGMENT" use="required">
+                        <xsd:simpleType>
+                          <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value="1"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:attribute>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="ZF1PM_KM_REQUEST" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:documentation>Send start-request til afsender system</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="LITRA_SYSTEM" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Litra system / Ekstern system</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="6"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="LITTYP" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>MADS Litratype</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="6"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="LITNR" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Litranummer</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="5"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="TPLNR" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Teknisk plads</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="30"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="AFSENDELSES_DATO" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Field of type DATS</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="8"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="AFSENDELSES_TID" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation>Field of type TIMS</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="6"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                      </xsd:sequence>
+                      <xsd:attribute name="SEGMENT" use="required">
+                        <xsd:simpleType>
+                          <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value="1"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:attribute>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+                <xsd:attribute name="BEGIN" use="required">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:enumeration value="1"/>
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:attribute>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="tns.msg_ZFPM_KM_REQUEST">
+    <wsdl:part name="part1" element="urn:ZFPM_KM_REQUEST"/>
+  </wsdl:message>
+  <wsdl:portType name="ZFPM_KM_REQUEST">
+    <wsdl:operation name="ZFPM_KM_REQUEST">
+      <wsdl:input message="urn:tns.msg_ZFPM_KM_REQUEST"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ZFPM_KM_REQUESTBinding" type="urn:ZFPM_KM_REQUEST">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ZFPM_KM_REQUEST">
+      <soap:operation soapAction="http://sap.com/xi/WebService/soap1.1"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetMileAge_ep">
+    <wsdl:port name="ZFPM_KM_REQUEST_pt" binding="urn:ZFPM_KM_REQUESTBinding">
+      <soap:address location="http://soa.igp2tst.dsb.dk:9200/soa-infra/services/stog/GetMileAge/GetMileAge_ep"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content>
+        <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+      </con:part>
+      <con:part>
+        <con:url>http://soa.igp2tst.dsb.dk:9200/soa-infra/services/stog/GetMileAge/GetMileAge_ep?XSD=CommonServiceHeader.xsd</con:url>
+        <con:content><![CDATA[<xsd:schema elementFormDefault="qualified" targetNamespace="urn:dsb.dk:services:common:header" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:dsb.dk:services:common:header">
+  <xsd:element name="RequestHeader" type="RequestHeaderType"/>
+  <xsd:complexType name="RequestHeaderType">
+    <xsd:annotation>
+      <xsd:documentation>IGP / SAP standard header</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="InterfaceId" type="InterfaceIdType">
+        <xsd:annotation>
+          <xsd:documentation>DSB interface id This is NOT a static id for all
+                        integrations exchanged via the same service. Instead the
+                        id represents the business scenario that the integration
+                        is part of.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="TransactionId" type="GuidType">
+        <xsd:annotation>
+          <xsd:documentation>Unique id of a message transmission</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CorrelationId" type="GuidType">
+        <xsd:annotation>
+          <xsd:documentation>Unique id of a message conversation/flow</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="DateTime" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:documentation>Creation date/time of message</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="UserId" type="UserId" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>User id of initiator</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="TestMode" type="xsd:boolean" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Test mode</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Systems" type="SystemsType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SystemsType">
+    <xsd:sequence>
+      <xsd:element name="Sender" type="SenderType">
+        <xsd:annotation>
+          <xsd:documentation>Sender system identification</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Middelware" type="MiddelwareType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>nb: this is only for middleware</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Receivers" type="ReceiversType">
+        <xsd:annotation>
+          <xsd:documentation>Receiver(s) system identification</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MiddelwareType">
+    <xsd:sequence>
+      <xsd:element name="Id" type="SystemType">
+        <xsd:annotation>
+          <xsd:documentation>Middleware system id</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ReceiversType">
+    <xsd:sequence>
+      <xsd:element name="Receiver" type="ReceiverType" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>Receiver system identification</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SenderType">
+    <xsd:annotation>
+      <xsd:documentation/>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Id" type="SystemType">
+        <xsd:annotation>
+          <xsd:documentation>Sender system</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="SubSystem" type="SystemType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Sender sub-system</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ReceiverType">
+    <xsd:sequence>
+      <xsd:element name="Id" type="SystemType">
+        <xsd:annotation>
+          <xsd:documentation>Receiver system</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="SubSystem" type="SystemType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Receiver sub-system</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="SystemType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">Name / id of a system</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="GuidType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The representation of a GUID, generally the
+                                    id of an element</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="100"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="InterfaceIdType">
+    <xsd:annotation>
+      <xsd:documentation>DSB interface id</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="6"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="UserId">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="15"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>]]></con:content>
+        <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+      </con:part>
+    </con:definitionCache>
+    <con:endpoints>
+      <con:endpoint>http://soa.igp2tst.dsb.dk:9200/soa-infra/services/stog/GetMileAge/GetMileAge_ep</con:endpoint>
+    </con:endpoints>
+    <con:environmentSpec>
+      <con:entry environmentId="12175688-e974-4b57-bbbe-d96bca6db27b">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="66bf7e1a-aa07-471f-a576-71f6d4e6cfd6">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="695603b1-f032-4ef0-9f68-dd3f2a39e0eb">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+    <con:operation id="309f76a5-82ec-434c-8e8c-2e4d0ba1d2bb" isOneWay="false" action="http://sap.com/xi/WebService/soap1.1" name="ZFPM_KM_REQUEST" bindingOperationName="ZFPM_KM_REQUEST" type="One-Way" inputName="" sendsAttachments="false">
+      <con:settings/>
+      <con:environmentSpec>
+        <con:entry environmentId="12175688-e974-4b57-bbbe-d96bca6db27b">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="66bf7e1a-aa07-471f-a576-71f6d4e6cfd6">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="695603b1-f032-4ef0-9f68-dd3f2a39e0eb">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:operation>
+  </con:interface>
+  <con:testSuite id="a6446a45-c51e-49c7-a1e5-8eb920816e28" name="getMileAge-TestSuite">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="5067cfc9-a124-4e16-af71-0d0cb7b62ba2" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="getMileAge-Positive" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:testStep type="request" id="21bd6e76-566e-4d0a-9cdd-4eab64c1d2f4" name="SOAP Request">
+        <con:settings/>
+        <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:interface>ZFPM_KM_REQUESTBinding</con:interface>
+          <con:operation>ZFPM_KM_REQUEST</con:operation>
+          <con:request name="SOAP Request" id="209a5c35-eb78-4f27-8439-e6435cd937f5">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:encoding>UTF-8</con:encoding>
+            <con:endpoint>http://soa.igp2tst.dsb.dk:9200/soa-infra/services/stog/GetMileAge/GetMileAge_ep</con:endpoint>
+            <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:dsb.dk:services:common:idoc:ZFPM_KM_REQUEST" xmlns:urn1="urn:dsb.dk:services:common:header">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:ZFPM_KM_REQUEST>
+         <ServiceHeaderRequest>
+            <urn1:InterfaceId>1284564</urn1:InterfaceId>
+            <urn1:TransactionId>125867</urn1:TransactionId>
+            <urn1:CorrelationId>125867</urn1:CorrelationId>
+            <urn1:DateTime>2022-01-11T00:00:00.000+02:00</urn1:DateTime>
+            <urn1:Systems>
+               <urn1:Sender>
+                  <urn1:Id>SAP</urn1:Id>
+               </urn1:Sender>
+               <!--Optional:-->
+               <urn1:Receivers>
+                  <!--1 or more repetitions:-->
+                  <urn1:Receiver>
+                     <urn1:Id>IGP</urn1:Id>
+                  </urn1:Receiver>
+               </urn1:Receivers>
+            </urn1:Systems>
+         </ServiceHeaderRequest>
+         <IDOC BEGIN="1">
+            <EDI_DC40 SEGMENT="1">
+               <TABNAM>EDI_DC40</TABNAM>
+               <MANDT>per</MANDT>
+               <DOCNUM>circum claustra</DOCNUM>
+               <DOCREL>nimb</DOCREL>
+               <STATUS>fo</STATUS>
+               <DIRECT>2</DIRECT>
+               <OUTMOD>e</OUTMOD>
+               <EXPRSS>i</EXPRSS>
+               <TEST>s</TEST>
+               <IDOCTYP>ZFPM_KM_REQUEST</IDOCTYP>
+               <MESTYP>hoc metuens</MESTYP>
+               <MESCOD>ac</MESCOD>
+               <MESFCT>spe</MESFCT>
+               <STD>a</STD>
+               <STDVRS>praete</STDVRS>
+               <STDMES>claust</STDMES>
+               <SNDPOR>imperio pr</SNDPOR>
+               <SNDPRT>qu</SNDPRT>
+               <SNDPFC>ac</SNDPFC>
+               <SNDPRN>ac vinclis</SNDPRN>
+               <SNDSAD>pectore flammas</SNDSAD>
+               <SNDLAD>pectore flammas</SNDLAD>
+               <RCVPOR>annos bell</RCVPOR>
+               <RCVPRT>ce</RCVPRT>
+               <RCVPFC>ra</RCVPFC>
+               <RCVPRN>volutans n</RCVPRN>
+               <RCVSAD>faciat maria</RCVSAD>
+               <RCVLAD>et quisquam</RCVLAD>
+               <CREDAT>et soror</CREDAT>
+               <CRETIM>annos</CRETIM>
+               <REFINT>ventos tempest</REFINT>
+               <REFGRP>regina iovisqu</REFGRP>
+               <REFMES>rapidum iacula</REFMES>
+               <ARCKEY>insuper altos</ARCKEY>
+               <SERIAL>cum murmure</SERIAL>
+            </EDI_DC40>
+            <!--Optional:-->
+            <ZF1PM_KM_REQUEST SEGMENT="1">
+               <LITRA_SYSTEM>IVU_S</LITRA_SYSTEM>
+               <LITTYP>DD</LITTYP>
+               <LITNR>*</LITNR>
+               <TPLNR>*</TPLNR>
+               <AFSENDELSES_DATO>20230502</AFSENDELSES_DATO>
+               <AFSENDELSES_TID>000000</AFSENDELSES_TID>
+            </ZF1PM_KM_REQUEST>
+         </IDOC>
+      </urn:ZFPM_KM_REQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+            <con:assertion type="Valid HTTP Status Codes" id="495f3f22-164d-4eb9-ad20-1600090c9a74" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>202</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="4f43c9b5-7ea4-4088-973c-d997223df64e" name="Response SLA">
+              <con:configuration>
+                <SLA>20000</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:wsaConfig action="http://sap.com/xi/WebService/soap1.1" mustUnderstand="NONE" version="200508"/>
+            <con:wsrmConfig version="1.2"/>
+          </con:request>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:testCase id="30a4f80a-1d09-4d90-837f-2ed937d848bd" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="getMileAge-Negative" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:testStep type="request" id="0209e76b-a36a-498e-9904-06bc289a0b4a" name="SOAP Request (No body)">
+        <con:settings/>
+        <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:interface>ZFPM_KM_REQUESTBinding</con:interface>
+          <con:operation>ZFPM_KM_REQUEST</con:operation>
+          <con:request name="SOAP Request (No body)" id="209a5c35-eb78-4f27-8439-e6435cd937f5">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:encoding>UTF-8</con:encoding>
+            <con:endpoint>http://soa.igp2tst.dsb.dk:9200/soa-infra/services/stog/GetMileAge/GetMileAge_ep</con:endpoint>
+            <con:request/>
+            <con:assertion type="Valid HTTP Status Codes" id="495f3f22-164d-4eb9-ad20-1600090c9a74" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>500</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="4f43c9b5-7ea4-4088-973c-d997223df64e" name="Response SLA">
+              <con:configuration>
+                <SLA>20000</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:wsaConfig action="http://sap.com/xi/WebService/soap1.1" mustUnderstand="NONE" version="200508"/>
+            <con:wsrmConfig version="1.2"/>
+            <con:environmentSpec>
+              <con:entry environmentId="695603b1-f032-4ef0-9f68-dd3f2a39e0eb">
+                <con:authProfile>No Authorization</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:request>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:properties/>
+    <con:reportParameters/>
+    <con:environmentSpec>
+      <con:entry environmentId="12175688-e974-4b57-bbbe-d96bca6db27b">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="66bf7e1a-aa07-471f-a576-71f6d4e6cfd6">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="695603b1-f032-4ef0-9f68-dd3f2a39e0eb">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:testSuite>
+  <con:requirements/>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:xmlTemplates/>
+    <con:parameters/>
+  </con:reporting>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to ReadyAPI functional tests
+
+// If hardcoding the token, uncomment and change line 5
+// token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new java.io.FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new java.io.PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:environment id="12175688-e974-4b57-bbbe-d96bca6db27b" name="IGP-DEV" index="0">
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="66bf7e1a-aa07-471f-a576-71f6d4e6cfd6" name="IGP-TST" index="1">
+    <con:service type="SOAP" name="ZFPM_KM_REQUESTBinding">
+      <con:endpoint authProfile="No Authorization" wssType="" wssTimeToLive="" outgoingWss="" incomingWss="" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://soa.igp2tst.dsb.dk:9200/soa-infra/services/stog/GetMileAge/GetMileAge_ep</con:endpoint>
+    </con:service>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="695603b1-f032-4ef0-9f68-dd3f2a39e0eb" name="IGP-VAL" index="2">
+    <con:service type="SOAP" name="ZFPM_KM_REQUESTBinding">
+      <con:endpoint authProfile="No Authorization" wssType="" wssTimeToLive="" outgoingWss="" incomingWss="" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://soa.igp2val.dsb.dk:9200/soa-infra/services/stog/GetMileAge/GetMileAge_ep</con:endpoint>
+    </con:service>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:authRepository/>
+  <con:environmentSpec>
+    <con:entry environmentId="12175688-e974-4b57-bbbe-d96bca6db27b">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="66bf7e1a-aa07-471f-a576-71f6d4e6cfd6">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="695603b1-f032-4ef0-9f68-dd3f2a39e0eb">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+  <con:tags/>
+</con:soapui-project>
