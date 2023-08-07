@@ -12,11 +12,12 @@ jobs:
         API_KEY: 4dd71297-6891-43d3-a85c-7949ead6735a
         SLM_LICENSE_SERVER: "https://api.slm.manage.smartbear.com:443"
         COMMAND_LINE: "-f'/reports' '-RJUnit-Style HTML Report' -FHTML '-EDefault environment' '/project/getMileAge-soap-req-test-readyapi-project.xml'"
+      volumes:
+        - "./Project/": "/project"
+        - "./Reports/": "/reports"
+        - "./Extensions": "/ext"
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
 
       - name: View files
         run: ls -l
-        
-        
+    
